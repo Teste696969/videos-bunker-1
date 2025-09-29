@@ -47,7 +47,8 @@ def gerar_json():
                         })
 
     if novos:
-        data_str = datetime.datetime.now().strftime("%Y%m%d")
+        # Nome do arquivo com data + hora (para sempre gerar um novo)
+        data_str = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
         output_file = os.path.join(OUTPUT_DIR, f"json-{data_str}.json")
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(novos, f, indent=2, ensure_ascii=False)
